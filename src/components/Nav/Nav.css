@@ -1,0 +1,121 @@
+.nav{
+    display: flex;
+    width: 90%;
+    height: 20%;
+    margin: 20px auto 10px auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__container {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav__login{
+    display: none;
+    margin: 0;
+}
+
+.nav__logo {
+    font-family: 'Lilita One';
+    font-size: 28px;
+    margin: 0;
+}
+
+.nav__search-container{
+    display: flex;
+    height: 100%;
+    width: 70%;
+    align-items: center;
+    border-bottom: solid 1px black;
+}
+
+.nav__search{
+    border: none;
+    width: 100%;
+    outline: none;
+    margin: 0;
+    padding: 0 0 3px 2px;
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.nav__search-submit {
+    background: none;
+    margin: 0;
+    padding: 8px;
+    border: none;
+    outline: none;
+}
+
+.nav__options {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+}
+
+.nav__options li{
+    display: inline-block;
+    margin: 0 6px 0 6px;
+    font-family: Poppins;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.login-button{
+    font-family: 'Poppins';
+    font-size: 16px;
+    padding: 3px;
+    border-radius: 4px;
+    border: solid 1px black;
+}
+
+
+.nav__options li:hover{
+    transform: scale(1.1);
+}
+
+@media (max-width: 800px){
+
+    .nav__logo-container{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .nav__logo{
+        font-size: 26px;
+    }
+
+    .nav__login{
+        display: block;
+    }
+
+    .nav__options{
+        display: none;
+    }
+
+    .nav__container{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav__logo{
+        align-self: flex-start;
+    }
+
+    .nav__search-container{
+        margin: 24px 0;
+        width: 90%;
+    }
+}
