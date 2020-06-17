@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollArrows from '../ScrollArrows';
 
 import './style.css'
 
@@ -7,8 +8,6 @@ class Carousel extends React.Component {
     constructor(props){
         super(props);
         this.div = React.createRef();
-        this.ids = [1,2,3,4,5];
-        this.current = 0;
     }
 
     componentDidMount(){
@@ -41,15 +40,14 @@ class Carousel extends React.Component {
             <div className='container' 
                 onMouseEnter={() => clearInterval(this.timerID)} 
                 onMouseLeave={() => this.timerID = setInterval(() => this.onHit(0),6000)}>
-                <div ref={this.div} className='carousel'>
+                <div ref={this.div} className='carousel remove-scrollbar'>
                     <img className='carousel__product' src='https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Resource not available'></img>
                     <img className='carousel__product' src='https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80' alt='Resource not available'></img>
                     <img className='carousel__product' src='https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Resource not available'></img>
                     <img className='carousel__product' src='https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80' alt='Resource not available'></img>
                     <img className='carousel__product' src='https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Resource not available'></img>
                 </div>
-                <button onClick={() => this.onHit(1)} className='rem-def-btn left-button'><i className="fas fa-chevron-left fa-2x"></i></button>
-                <button onClick={() => this.onHit(0)} className='rem-def-btn right-button'><i className="fas fa-chevron-right fa-2x"></i></button>
+                <ScrollArrows onHit={(i) => this.onHit(i)} />
             </div>
         )
     }

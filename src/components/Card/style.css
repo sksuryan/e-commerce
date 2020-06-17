@@ -1,0 +1,9 @@
+.card{
+    width: 225px;
+    height: 100%;
+
+    scroll-snap-align: start;
+
+    background: peachpuff;
+    border-radius: 12px;
+}

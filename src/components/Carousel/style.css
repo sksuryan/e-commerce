@@ -11,24 +11,20 @@
     display: grid;
     width: 100%;
     height: 100%;
+    
     gap: 10px;
+    grid-auto-columns: 100%;
     grid-auto-flow: column;
+
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 
     overflow-x: scroll;
     overflow-y: hidden;
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.carousel::-webkit-scrollbar {
-    display: none;
 }
 
 .carousel__product{
-    width: 90vw;
+    width: 100%;
     height: 100%;
     max-height: 100%;
     object-fit: cover;
@@ -36,34 +32,6 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     border-radius: 12px;
-}
-
-.rem-def-btn{
-    background: none;
-    outline: none;
-    border: none;
-
-    cursor: pointer;
-}
-
-.left-button, .right-button{
-    position: absolute;
-    top: 50%;
-
-    transform: translateY(-50%);
-    transition: all ease 0.4s;
-}
-
-.left-button{
-    left: 0;
-}
-
-.right-button{
-    right: 0;
-}
-
-.left-button:hover, .right-button:hover{
-    transform: scale(1.2) translateY(-50%);
 }
 
 @media (max-width: 600px){
