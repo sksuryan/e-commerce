@@ -41,11 +41,11 @@ class Carousel extends React.Component {
                 onMouseEnter={() => clearInterval(this.timerID)} 
                 onMouseLeave={() => this.timerID = setInterval(() => this.onHit(0),6000)}>
                 <div ref={this.div} className='carousel remove-scrollbar'>
-                    <img className='carousel__product' src='https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Resource not available'></img>
-                    <img className='carousel__product' src='https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80' alt='Resource not available'></img>
-                    <img className='carousel__product' src='https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Resource not available'></img>
-                    <img className='carousel__product' src='https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80' alt='Resource not available'></img>
-                    <img className='carousel__product' src='https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80' alt='Resource not available'></img>
+                    <img className='carousel__product' src='https://source.unsplash.com/1600x400/?products' alt='Resource not available'></img>
+                    <img className='carousel__product' src='https://source.unsplash.com/1600x400/?products' alt='Resource not available'></img>
+                    <img className='carousel__product' src='https://source.unsplash.com/1600x400/?products' alt='Resource not available'></img>
+                    <img className='carousel__product' src='https://source.unsplash.com/1600x400/?products' alt='Resource not available'></img>
+                    <img className='carousel__product' src='https://source.unsplash.com/1600x400/?products' alt='Resource not available'></img>
                 </div>
                 <ScrollArrows onHit={(i) => this.onHit(i)} />
             </div>

@@ -1,9 +1,75 @@
 .card{
+    display: grid;
     width: 225px;
-    height: 100%;
+    height: 300px;
 
     scroll-snap-align: start;
 
-    background: peachpuff;
+    grid-template-rows: 55% 30% 15%;
+    box-shadow: 1px 1px 4px 1px rgba(90, 84, 84, 0.226);
+
     border-radius: 12px;
+}
+
+.card__product{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.card__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__title, .card__price{
+    font-family: 'Poppins';
+    font-weight: normal;
+    margin: 0;
+}
+
+.card__title{
+    font-size: 14px;
+}
+
+.card__price{
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+.card__original-price{
+    text-decoration: line-through;
+    font-size: 14px;
+    color: rgb(94, 94, 94);
+}
+
+.card__description{
+    font-family: 'Poppins';
+    color: rgb(46, 143, 16);
+    font-weight: lighter;
+    font-size: 12px;
+    margin: 0;
+}
+
+.card__add-to-cart{
+    border: none;
+    outline: none;
+    background: none;
+
+    font-family: 'Poppins';
+    font-size: 14px;
+    color: white;
+
+    background-color: rgb(245, 156, 39);
+    border-radius: 12px;
+}
+
+.fa-shopping-cart{
+    margin-right: 4px;
 }
