@@ -68,8 +68,15 @@
 
     background-color: rgb(245, 156, 39);
     border-radius: 12px;
+
+    cursor: pointer;
+}
+
+.card__add-to-cart:hover .fa-shopping-cart{
+    transform: scale(1.2);
 }
 
 .fa-shopping-cart{
+    transition: all ease 0.4s;
     margin-right: 4px;
 }

@@ -8,7 +8,10 @@ class Nav extends React.Component {
                 <div className='nav__container'>
                     <div className='nav__logo-container'>
                         <h1 className='nav__logo'>logo</h1>
-                        <h1 className='nav__login login-button'>login</h1>
+                        <div className="nav__mobile-options">
+                            <h1 className='nav__login login-button'>login</h1>
+                            <i className="fas fa-shopping-cart fa-lg nav__mobile-cart"></i>
+                        </div>
                     </div>
                     <div className='nav__search-container'>
                         <input type='text' className='nav__search' placeholder='Search'></input>
@@ -19,6 +22,7 @@ class Nav extends React.Component {
                 </div>
                 <ul className='nav__options'>
                     <li className='login-button'>login</li>
+                    <li><i className="fas fa-shopping-cart"></i> Cart</li>
                     <li>about us</li>
                 </ul>
             </div>
