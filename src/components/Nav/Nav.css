@@ -84,11 +84,6 @@
     display: none;
 }
 
-
-.nav__options li:hover{
-    transform: scale(1.03);
-}
-
 @media (max-width: 800px){
 
     .nav__logo-container{
