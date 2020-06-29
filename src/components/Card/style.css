@@ -47,6 +47,7 @@
     text-decoration: line-through;
     font-size: 14px;
     color: rgb(94, 94, 94);
+    margin-left: 8px;
 }
 
 .card__description{

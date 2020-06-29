@@ -22,20 +22,14 @@ class Scrollable extends React.Component {
     }
 
     render(){
+        const data = this.props.data||[];
         return(
             <div className='section-seperator'>
             <h1 className='scrollable__heading'>New offers are lining uppp!<span role='img' aria-label='celebrate'>🎉</span></h1>
-            <h1 className='scrollable__sub-heading'>Save more than 15%</h1>
+            <h1 className='scrollable__sub-heading'>Save more than ever!</h1>
             <div className='scrollable-container'>
                 <div className='scrollable remove-scrollbar' ref={this.div}>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {data.map(elt => <Card key={elt.id} data={elt}/>)}
                 </div>
                 <ScrollArrows onHit={(i) => this.onHit(i)}/>
             </div>
