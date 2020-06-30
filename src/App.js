@@ -13,10 +13,10 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('https://us-central1-ecom-d6dfc.cloudfunctions.net/getLatest')
-      .then(res => res.json())
-      .then(latestDiscounts => this.setState({latestDiscounts}))
-      .catch(err => console.log(err));
+    // fetch('https://us-central1-ecom-d6dfc.cloudfunctions.net/getLatest')
+    //   .then(res => res.json())
+    //   .then(latestDiscounts => this.setState({latestDiscounts}))
+    //   .catch(err => console.log(err));
   }
 
   render(){
