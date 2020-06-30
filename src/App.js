@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './components/Nav'
 import Carousel from './components/Carousel';
 import Scrollable from './components/Scrollable';
-import LoginForm from './components/LoginForm';
 
 class App extends Component {
   constructor(){
@@ -28,7 +27,6 @@ class App extends Component {
           <Carousel />
           <Scrollable data={this.state.latestDiscounts}/>
         </div>
-        <LoginForm />
       </>
     );
   }

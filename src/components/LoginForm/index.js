@@ -4,12 +4,9 @@ import './style.css';
 class LoginForm extends React.Component{
     render(){
         return (
-            <>
-                <div className='login-form__overlay'></div>
-                <div className='login-form__container'>
-                    <div className='login-form__close'>
-                        <input className='login-form__close-input' type='checkbox'></input>
-                    </div>
+            <div className='login-form__overlay' onClick={() => this.props.updateShowLogin(false)}>
+                <div className='login-form__container' onClick={(e) => e.stopPropagation()}>
+                    <div className='login-form__close' onClick={() => this.props.updateShowLogin(false)}></div>
                     <form className='login-form'>
                         <div className='login-form__seperator'>
                             <label htmlFor='login-form__email' className='login-form__label'>Enter e-mail:</label>
@@ -28,7 +25,7 @@ class LoginForm extends React.Component{
                         </div>
                     </form>
                 </div>
-            </>
+            </div>
         );
     }
 }
