@@ -1,5 +1,6 @@
 import React from 'react';
 import {auth} from '../../../firebase';
+import { functions } from '../../../firebase';
 
 class SignUpForm extends React.Component{
 
@@ -20,6 +21,8 @@ class SignUpForm extends React.Component{
         auth.createUserWithEmailAndPassword(email,password).then(d => {
             d.user.sendEmailVerification();
             d.user.updateProfile({displayName: name});
+            const newUserDocument = functions.httpsCallable('newUserDocument');
+            newUserDocument().then(d => console.log(d)).catch(err => console.log(err));
             this.props.updateShowLogin();
         }).catch(err => this.setState({error: err.message}));
         

@@ -1,9 +1,10 @@
 import React from 'react';
 import './style.css';
+import AddToCart from '../AddToCart';
 
 class Card extends React.Component{
     render(){
-        const {name, mrp, discount} = this.props.data;
+        const {name, mrp, discount,id} = this.props.data;
         const price = mrp*(100-discount)/100;
         return (
             <div className='card'>
@@ -13,7 +14,7 @@ class Card extends React.Component{
                     {discount&&<h5 className='card__description'>{`Save upto ${discount}%!`}</h5>}
                     <h4 className='card__price'>{`₹${price}`}<span className='card__original-price'>{`₹${mrp}`}</span></h4>
                 </div>
-                <button className='card__add-to-cart'><i className="fas fa-shopping-cart"></i> Add to Cart</button>
+                <AddToCart className='card__add-to-cart' id={id}/>
             </div>
         );
     }

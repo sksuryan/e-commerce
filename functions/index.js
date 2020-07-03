@@ -34,3 +34,32 @@ exports.getLatest = functions.https.onRequest((request, response) => {
         response.jsonp(products);
     })
 });
+
+exports.newUserDocument = functions.https.onCall(async (data,context) => {
+    const uid = context.auth.uid;
+    if(uid){
+        const usersRef = admin.firestore().collection('/users');
+        await usersRef.doc(uid).set({cart: [], cartItems: 0});
+
+        return ({message: 'Success'});
+    }
+
+    return ({message: 'failed'});
+});
+
+exports.addToCart = functions.https.onCall(async (data,context) => {
+    const uid = context.auth.uid;
+    if(uid){
+        const userDoc = admin.firestore().doc(`/users/${uid}`);
+        let {cart,cartItems} = (await userDoc.get()).data();
+
+        const productID = data.productID;
+
+        cart.push({productID, quantity: 1});
+        cartItems = cart.length;
+        await userDoc.update({cart,cartItems});
+        return ({message: 'item added'});
+    }
+
+    return ({message: 'failed'});
+});

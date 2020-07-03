@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/functions';
 
 const config = {
     apiKey: "AIzaSyBLY5NwFGNWQRFRDmfus8laeYCzhs9eGB8",
@@ -12,9 +13,10 @@ const config = {
     appId: "1:614281200389:web:6add3052e8b0cbba7fad6c"
 };
 
-firebase.initializeApp(config);
-
+const app = firebase.initializeApp(config);
+// app.functions().useFunctionsEmulator('http://localhost:5001');
 const auth = firebase.auth();
 const db = firebase.firestore();
+const functions = firebase.functions();
 
-export {auth, db};
+export {app, auth, db, functions};
