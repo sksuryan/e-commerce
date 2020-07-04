@@ -3,8 +3,10 @@ import './Nav.css';
 import AuthForms from '../AuthForms';
 
 import {connect} from 'react-redux';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import { LOGIN, LOGOUT } from '../../store/actions/Login';
+import {UPDATE, RESET} from '../../store/actions/Cart';
+import CartIcon from './CartIcon';
 
 class Nav extends React.Component {
     constructor(){
@@ -18,8 +20,15 @@ class Nav extends React.Component {
         auth.onAuthStateChanged(user => {
             if(user){
                 this.props.login(user);
+                const cartRef = db.doc(`/users/${user.uid}`);
+
+                cartRef.onSnapshot(snapshot => {
+                    const data = snapshot.data();
+                    this.props.updateCart(data);
+                });
             } else {
                 this.props.logout();
+                this.props.resetCart();
             }
         })
     }
@@ -40,7 +49,7 @@ class Nav extends React.Component {
                             {
                                 !loggedIn && <h1 className='nav__login login-button' key='25515' onClick={() => this.updateShowLogin(true)}>login</h1>
                             }
-                            <span><i className="fas fa-shopping-cart fa-lg nav__mobile-cart"></i></span>
+                            <CartIcon mobile='true' />  
                             {
                                 loggedIn && <span className='nav__icon'><i className="fas fa-user fa-lg nav__mobile-cart"></i></span>
                             }
@@ -54,7 +63,7 @@ class Nav extends React.Component {
                     </div>
                 </div>
                 <ul className='nav__options'>
-                    <li><i className="fas fa-shopping-cart"></i> Cart</li>
+                    <CartIcon />
                     {
                         !loggedIn && <li className='login-button' key='515' onClick={() => this.updateShowLogin(true)}>login</li> 
                     }
@@ -84,7 +93,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     login: (user) => dispatch(LOGIN(user)),
-    logout: () => dispatch(LOGOUT())
+    logout: () => dispatch(LOGOUT()),
+    resetCart: () => dispatch(RESET()),
+    updateCart: (data) => dispatch(UPDATE(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);
