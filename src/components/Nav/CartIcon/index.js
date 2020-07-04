@@ -7,13 +7,13 @@ class CartIcon extends React.Component{
             <>
                 {this.props.mobile && 
                     <span className='cart-icon'>
-                        <span className='cart-badge'>{this.props.cartItems}</span>
-                        <i className="fas fa-shopping-cart fa-lg nav__mobile-cart"></i>
+                        {this.props.loggedIn && <span className='cart-badge'>{this.props.cartItems}</span>}
+                        <span><i className="fas fa-shopping-cart fa-lg nav__mobile-cart"></i></span>
                     </span>}
                 {!this.props.mobile && <li>
                     <span className='cart-icon'>
-                        <span className='cart-badge'>{this.props.cartItems}</span>
-                        <i className="fas fa-shopping-cart"></i>
+                        { this.props.loggedIn && <span className='cart-badge'>{this.props.cartItems}</span>}
+                        <span><i className="fas fa-shopping-cart"></i></span>
                     </span> Cart</li>}
             </>
         )
@@ -21,7 +21,8 @@ class CartIcon extends React.Component{
 }
 
 const mapStateToProps = (state) => ({
-    ...state.Cart
+    cartItems: state.Cart.cartItems,
+    loggedIn: state.login.loggedIn
 });
 
 export default connect(mapStateToProps)(CartIcon);
